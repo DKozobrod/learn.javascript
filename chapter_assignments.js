@@ -187,5 +187,15 @@ do { value = +prompt("Введите число больше 100:", '');
 } while (value <= 100);
 alert('Число больше 100!');
 
-
-
+//Напишите "if", аналогичный "switch"
+browser = prompt("Enter browser name:", '')
+if (browser == 'Edge') {
+    alert("You've got the Edge!");
+} else if (browser == 'Chrome' 
+|| browser == 'Firefox' 
+|| browser == 'Safari' 
+|| browser == 'Opera') {
+    alert("Okay we support these browsers too");
+} else {
+    alert("We hope that this page looks ok!");
+}
