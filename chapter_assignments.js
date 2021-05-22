@@ -207,3 +207,76 @@ switch (number) {
     case 1: alert('Вы ввели число 1'); break;
     case 2: case 3: alert('Вы ввели число 2, а может и 3'); break;
 }
+
+//Функции
+
+//локальные переменные
+function showMessage() {
+    let message = "Hi, people!";
+    console.log(message);
+}
+showMessage();
+console.log(message); //ошибка
+
+//внешние переменные
+let nameMessage = 'Артём';
+function showMessage2() {
+    console.log('Привет, ' + nameMessage + '!');
+}
+showMessage2();
+console.log(nameMessage); //верно
+
+//параметры
+function showMessage3(text1, text2) {
+    console.log(text1 + ' - ' + text2);
+}
+showMessage3('Артём', 'Молодец');
+showMessage3('Дима', 'туго понимает');
+showMessage3('но Дима справится', 'ему просто нужно немного больше времени');
+
+//Перепишите функцию, используя оператор '?' или '||'
+function checkAge(age) {
+    if (age > 18) {
+      return true;
+    } else {
+      return confirm('Родители разрешили?');
+    }
+  }
+
+function checkAge(age) {
+    return (age > 18) ? true: 
+    confirm('Родители рарзешили?');
+}
+
+function checkAge(age) {
+    return (age > 18) || confirm('Родители разрешили?');
+}
+
+//Напишите функцию min(a,b), которая возвращает меньшее из чисел a и b.
+function min(a, b) {
+    return (a < b) ? console.log(a): console.log(b);
+}
+min(2, 5); //2
+min(3, -1); //-1
+min(1, 1); //1
+
+//Напишите функцию pow(x,n), которая возвращает x в степени n
+function pow(x, n) {
+    return (n >= 1) ? console.log(x**n): console.log('Вы ввели не натуралное число');
+}
+pow(3, 2);
+pow(3, 3);
+pow(1, 100);
+
+// Function Declaration
+function sum(a, b) {
+    return a + b;
+  }
+
+// Function Expression
+let sum = function(a, b) {
+    return a + b;
+  };
+//стрелочная Function Expression
+let sum = (a, b) => a + b;
+
