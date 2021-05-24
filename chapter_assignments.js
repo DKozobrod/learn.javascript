@@ -280,3 +280,137 @@ let sum = function(a, b) {
 //стрелочная Function Expression
 let sum = (a, b) => a + b;
 
+
+//объекты
+let user = {
+    name: 'Elena',
+    age: 18,
+    city: 'Taganrog',
+}
+console.log(user.city);
+
+
+let user1 = {}
+user1.name = 'John';
+user1.surname = 'Smith';
+user1.name = 'Pete';
+delete user1.name;
+console.log(user1);
+
+
+//Напишите функцию isEmpty(obj),
+// которая возвращает true, если у объекта нет свойств, иначе false.
+function isEmpty(obj) {
+    for(key in obj) {
+        return false;
+    }
+    return true;
+}
+
+//найти сумму зачей  всех ключей объекта
+let salaries = {
+    John: 100,
+    Ann: 160,
+    Pete: 130
+  }
+sum = (salaries.John + salaries.Ann + salaries.Pete);
+console.log(sum);
+//или
+let sum = 0;
+for(let key in salaries) {
+sum += salaries[key];
+}
+console.log(sum);
+
+
+// Создайте функцию multiplyNumeric(obj), 
+// которая умножает все числовые свойства объекта obj на 2.
+let menu = {
+    width: 200,
+    height: 300,
+    title: "My menu"
+  };
+
+function multiplyNumeric(obj) { 
+    for (let key in obj) { 
+    if (typeof obj[key] == "number") {
+    obj[key] *= 2;
+    }
+}
+}
+multiplyNumeric(menu);
+console.log(menu);
+
+
+let user = {
+    name: "Джон",
+    function() { 
+        console.log(this.name) }
+  };
+user.function();
+
+
+//сделать калькулятор
+let calculator = {
+    read() {this.a = 3; this.b = 2},
+    sum() {return this.a + this.b},
+    mul() {return this.a * this.b}
+};
+calculator.read();
+console.log( calculator.sum() );
+console.log( calculator.mul() );
+
+//Цепь вызовов
+let ladder = {
+    step: 0,
+    up() {
+      this.step++;
+      console.log( this.step++ );
+      return this;
+    },
+    down() {
+      this.step--;
+      console.log( this.step-- );
+      return this;
+    },
+    showStep: function() { 
+      console.log( this.step );
+      return this;
+    }
+  };
+  ladder.up().up().down().down().up().down().showStep(); // 1
+
+//Создание калькулятора при помощи конструктора
+function Calculator() {
+this.read = function() {this.a = 5; this.b = 6};
+this.sum = function() {return this.a + this.b};
+this.mul = function() {return this.a * this.b};
+} 
+let calculator = new Calculator();
+calculator.read();
+console.log( "Sum=" + calculator.sum() );
+console.log( "Mul=" + calculator.mul() );
+
+
+function Accumulator(startingValue) {
+    this.value = startingValue;
+    this.read = function() {
+    return this.value += 5;
+    };
+}
+  
+let accumulator = new Accumulator(1);
+accumulator.read();
+accumulator.read();
+console.log(accumulator.value);
+
+//массивы
+let styles = ['Джаз', 'Блюз'];
+console.log(styles);
+styles.push('Рок-н-ролл');
+console.log(styles);
+styles[Math.floor((styles.length -1)/2)] = "Классика";
+console.log(styles);
+console.log(styles.shift());
+styles.unshift("Рэп", "Регги");
+console.log(styles);
